@@ -36,5 +36,7 @@ for model in models.values():
 plt.boxplot(results, labels=models.keys())
 plt.show()
 
-# for name, model in models.items():
-#     model.fit()
+for name, model in models.items():
+    model.fit(X_train_scaled, y_train)
+    test_score = model.score(X_test_scaled,y_test)
+    print("{} Test Set Accuracy: {}".format(name, test_score))    
